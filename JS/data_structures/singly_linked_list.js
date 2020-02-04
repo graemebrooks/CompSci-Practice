@@ -81,6 +81,44 @@ class SinglyLinkedList {
 		}
 		return false;
 	}
+	insert(index, value) {
+		if (index < 0 || index > this.length) return false;
+		if (index === this.length) return !!this.push(value);
+		if (index === 0) return !!this.unshift(value);
+
+		let newNode = new Node(value);
+		let prev = this.get(index - 1);
+		let temp = prev.next;
+		prev.next = newNode;
+		newNode.next = temp;
+		this.length++;
+		return true;
+	}
+	remove(index) {
+		if (index < 0 || index >= this.length) return false;
+		if (index === 0) return this.shift();
+		if (index === this.length - 1) return this.pop();
+
+		let prev = this.get(index - 1);
+		let removed = prev.next;
+		prev.next = removed.next;
+		this.length--;
+		return removed;
+	}
+	reverse() {
+		let current = this.head;
+		this.head = this.tail;
+		this.tail = current;
+		let prev = null;
+		let next;
+		for (let i = 0; i < this.length; i++) {
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		return this;
+	}
 	traverse() {
 		let current = this.head;
 		while (current) {
@@ -91,16 +129,3 @@ class SinglyLinkedList {
 }
 
 let list = new SinglyLinkedList();
-list.push(10);
-list.push(20);
-list.push(30);
-list.push(40);
-console.log(list);
-let popResult = list.pop();
-console.log(popResult);
-console.log(list);
-list.unshift('first');
-console.log(list);
-console.log(list.get(3));
-list.set(3, '<3');
-console.log(list.get(3));
