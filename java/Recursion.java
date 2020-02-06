@@ -2,11 +2,6 @@
 
 public class Recursion {
     public static void main(String[] args) {
-
-        int powerTest = power(10, 3);
-
-        int factorialTest = factorial(5);
-
     }
 
     public static int power(int base, int exponent) {
@@ -27,7 +22,24 @@ public class Recursion {
         if (arr.length == 1) {
             return arr[0];
         }
-        int lastElement = arr.pop
+        int last = arr[arr.length - 1];
+        int[] tempArr = new int[arr.length - 1];
+        for (int i = 0; i < tempArr.length; i++) {
+            tempArr[i] = arr[i];
+        }
+        return last * productOfArray(tempArr);
+    }
+
+    public static int recursiveRange(int num) {
+        if (num == 1)
+            return 1;
+        return num + recursiveRange(num - 1);
+    }
+
+    public static int fib(int num) {
+        if (num <= 2)
+            return 1;
+        return fib(num - 1) + fib(num - 2);
     }
 
 }

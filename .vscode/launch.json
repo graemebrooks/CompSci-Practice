@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Recursion",
+            "request": "launch",
+            "mainClass": "Recursion",
+            "projectName": "CompSci-Practice_8aaf684b"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/JS/sorting/merge_sort.js"
+        }
+    ]
+}
