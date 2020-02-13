@@ -1,5 +1,13 @@
 {
     "configurations": [
+
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - NaiveStringSearch",
+            "request": "launch",
+            "mainClass": "NaiveStringSearch",
+            "projectName": "CompSci-Practice_8aaf684b"
+        },
         {
             "type": "java",
             "name": "CodeLens (Launch) - Recursion",
