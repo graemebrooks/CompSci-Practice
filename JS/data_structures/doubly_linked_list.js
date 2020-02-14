@@ -82,14 +82,52 @@ class DoublyLinkedList {
 			return currentNode;
 		}
 	}
+	set(index, val) {
+		let targetNode = this.get(index);
+		if (targetNode) {
+			targetNode.val = val;
+			return true;
+		}
+		return false;
+	}
+	insert(index, val) {
+		if (index < 0 || index > this.length) return false;
+		if (index === 0) {
+			this.unshift(val);
+		} else if (index === this.length) {
+			this.push(val);
+		} else {
+			let newNode = new Node(val);
+			let targetNode = this.get(index - 1);
+			newNode.next = targetNode.next;
+			newNode.prev = targetNode;
+			targetNode.next = newNode;
+			newNode.next.prev = newNode;
+		}
+		this.length++;
+		return true;
+	}
+	remove(index) {
+		if (index < 0 || index >= this.length) return undefined;
+		if (index === 0) return this.shift();
+		if (index === this.length - 1) return this.pop();
+		let targetNode = this.get(index);
+		targetNode.prev.next = targetNode.next;
+		targetNode.next.prev = targetNode.prev;
+		targetNode.next = null;
+		targetNode.prev = null;
+		this.length--;
+		return targetNode;
+	}
 }
 
 list = new DoublyLinkedList();
 
 list.push('A');
-console.log(list.tail);
-
-console.log(list.push('B'));
-console.log(list.push('C'));
-console.log(list.unshift('Z'));
-console.log(list.get(3));
+list.push('B');
+list.push('C');
+list.push('D');
+console.log(list.get(2));
+list.insert(2, 'INSERT');
+console.log(list.get(2));
+console.log(list.remove(2));
