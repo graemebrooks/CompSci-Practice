@@ -1,6 +1,12 @@
 {
     "configurations": [
-
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LinearSearch",
+            "request": "launch",
+            "mainClass": "LinearSearch",
+            "projectName": "CompSci-Practice_8aaf684b"
+        },
         {
             "type": "java",
             "name": "CodeLens (Launch) - NaiveStringSearch",
