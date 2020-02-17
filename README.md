@@ -26,6 +26,14 @@ For each language:
 - Graph Traversal
 - Dijkstra's Algorithm
 
+### Design Patterns
+- Singleton
+- Factory
+- Strategy
+- Observer
+- Builder
+- Adapter
+- State
 
 ### Misc
 - Recursion

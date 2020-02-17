@@ -122,12 +122,3 @@ class DoublyLinkedList {
 }
 
 list = new DoublyLinkedList();
-
-list.push('A');
-list.push('B');
-list.push('C');
-list.push('D');
-console.log(list.get(2));
-list.insert(2, 'INSERT');
-console.log(list.get(2));
-console.log(list.remove(2));
