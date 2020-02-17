@@ -1,3 +1,16 @@
+// Array implementation
+let q = [];
+
+// Enqueue
+q.unshift('First');
+q.unshift('Second');
+q.unshift('Third');
+
+// Dequeue
+q.pop();
+q.pop();
+q.pop();
+
 // Linked list implementation
 class Node {
 	constructor(val) {
@@ -6,36 +19,33 @@ class Node {
 	}
 }
 
-class Stack {
+class Queue {
 	constructor() {
 		this.first = null;
 		this.last = null;
 		this.size = 0;
 	}
-	push(val) {
+	enqueue(val) {
 		let newNode = new Node(val);
 		if (!this.first) {
 			this.first = newNode;
 			this.last = newNode;
 		} else {
-			let nextNode = this.first;
-			this.first = newNode;
-			newNode.next = nextNode;
+			this.last.next = newNode;
+			this.last = newNode;
 		}
 		this.size++;
 	}
-	pop() {
-		let poppedNode = this.first;
+	dequeue() {
 		if (!this.first) return null;
+		let temp = this.first;
 		if (this.size === 1) {
-			this.first = null;
 			this.last = null;
-		} else {
-			this.first = this.first.next;
 		}
+		this.first = this.first.next;
 		this.size--;
-		return poppedNode.val;
+		return temp.val;
 	}
 }
 
-stack = new Stack();
+q = new Queue();
