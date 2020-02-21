@@ -53,13 +53,61 @@ class BST {
 		if (!found) return false;
 		return current;
 	}
+	BFS() {
+		let data = [];
+		let queue = [];
+		let node = this.root;
+		queue.push(this.root);
+		while (queue.length) {
+			node = queue.shift();
+			data.push(node.val);
+			if (node.left) queue.push(node.left);
+			if (node.right) queue.push(node.right);
+		}
+		return data;
+	}
+	DFSPreOrder() {
+		let data = [];
+		let current = this.root;
+		let traverse = (node) => {
+			data.push(node.val);
+			if (node.left) traverse(node.left);
+			if (node.right) traverse(node.right);
+		};
+		traverse(current);
+		return data;
+	}
+	DFSPostOrder() {
+		let data = [];
+		let current = this.root;
+		let traverse = (node) => {
+			if (node.left) traverse(node.left);
+			if (node.right) traverse(node.right);
+			data.push(node.val);
+		};
+		traverse(current);
+		return data;
+	}
+	DFSInOrder() {
+		let data = [];
+		let current = this.root;
+		let traverse = (node) => {
+			if (node.left) traverse(node.left);
+			data.push(node.val);
+			if (node.right) traverse(node.right);
+		};
+		traverse(current);
+		return data;
+	}
 }
 
 let tree = new BST();
-console.log(tree.insert(10));
-console.log(tree.insert(5));
-console.log(tree.insert(2));
-console.log(tree.insert(13));
-console.log(tree.insert(11));
-console.log(tree.find(5));
-console.log(tree.find(71));
+tree.insert(10);
+tree.insert(4);
+tree.insert(13);
+tree.insert(222);
+tree.insert(65);
+tree.insert(1);
+console.log(tree.DFSPreOrder());
+console.log(tree.DFSPostOrder());
+console.log(tree.DFSInOrder());
