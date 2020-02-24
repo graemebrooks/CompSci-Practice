@@ -102,12 +102,3 @@ class BST {
 }
 
 let tree = new BST();
-tree.insert(10);
-tree.insert(4);
-tree.insert(13);
-tree.insert(222);
-tree.insert(65);
-tree.insert(1);
-console.log(tree.DFSPreOrder());
-console.log(tree.DFSPostOrder());
-console.log(tree.DFSInOrder());
