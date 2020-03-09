@@ -22,6 +22,43 @@ class Graph {
 		this.adjacencyList[v1] = this.adjacencyList[v1].filter((v) => v !== v2);
 		this.adjacencyList[v2] = this.adjacencyList[v2].filter((v) => v !== v1);
 	}
+	DFSRecursive(start) {
+		const result = [];
+		const visited = {};
+		const adjacencyList = this.adjacencyList;
+
+		const DFSHelper = (vertex) => {
+			if (!vertex) return null;
+			visited[vertex] = true;
+			result.push(vertex);
+			adjacencyList[vertex].forEach((neighbor) => {
+				if (!visited[neighbor]) {
+					return DFSHelper(neighbor);
+				}
+			});
+		};
+		DFSHelper(start);
+		return result;
+	}
+	DFSIterative(start) {
+		const s = [ start ];
+		const result = [];
+		const visited = {};
+
+		visited[start] = true;
+		while (s.length) {
+			let current = s.pop();
+			result.push(current);
+
+			this.adjacencyList[current].forEach((neighbor) => {
+				if (!visited[neighbor]) {
+					visited[neighbor] = true;
+					s.push(neighbor);
+				}
+			});
+		}
+		return result;
+	}
 }
 
 g = new Graph();
@@ -34,4 +71,5 @@ g.addEdge('Tokyo', 'Wellington');
 g.addEdge('Aspen', 'Dallas');
 g.addEdge('Wellington', 'Dallas');
 console.log(g);
-g.removeVertex('Tokyo');
+// console.log(g.DFSRecursive('Tokyo'));
+console.log(g.DFSIterative('Tokyo'));
