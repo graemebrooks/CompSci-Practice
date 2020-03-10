@@ -59,6 +59,26 @@ class Graph {
 		}
 		return result;
 	}
+	BFS(start) {
+		const queue = [ start ];
+		const result = [];
+		const visited = {};
+		let current;
+		visited[start] = true;
+
+		while (queue.length) {
+			current = queue.shift();
+			result.push(current);
+
+			this.adjacencyList[current].forEach((neighbor) => {
+				if (!visited[neighbor]) {
+					visited[neighbor] = true;
+					queue.push(neighbor);
+				}
+			});
+		}
+		return result;
+	}
 }
 
 g = new Graph();
@@ -72,4 +92,5 @@ g.addEdge('Aspen', 'Dallas');
 g.addEdge('Wellington', 'Dallas');
 console.log(g);
 // console.log(g.DFSRecursive('Tokyo'));
-console.log(g.DFSIterative('Tokyo'));
+// console.log(g.DFSIterative('Tokyo'));
+console.log(g.BFS('Tokyo'));
