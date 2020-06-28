@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - BubbleSort",
+            "request": "launch",
+            "mainClass": "sorting.BubbleSort",
+            "projectName": "CompSci-Practice_44856a1f"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - NaiveStringSearch",
+            "request": "launch",
+            "mainClass": "NaiveStringSearch",
+            "projectName": "CompSci-Practice_44856a1f"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LinearSearch",
+            "request": "launch",
+            "mainClass": "LinearSearch",
+            "projectName": "CompSci-Practice_44856a1f"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - LinearSearch",
             "request": "launch",
             "mainClass": "LinearSearch",
